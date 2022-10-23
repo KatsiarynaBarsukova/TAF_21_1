@@ -6,11 +6,20 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class BasePage {
     protected WebDriver driver;
-
-    public BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver) throws Exception {
         this.driver = driver;
-    }
 
+        if (!isPageOpened()) {
+            int i = 0;
+            while (i < 30 && isPageOpened()) {
+                Thread.sleep(1000);
+            }
+        }
+
+        if (!isPageOpened()) {
+            throw new Exception("Page has not been opened.");
+        }
+    }
     protected abstract By getPageIdentifier();
 
     public boolean isPageOpened() {
