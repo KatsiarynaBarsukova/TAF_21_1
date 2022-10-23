@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.time.Duration;
+
 public class BrowsersService {
     private WebDriver driver = null;
 
@@ -35,23 +37,23 @@ public class BrowsersService {
 
                 driver = new FirefoxDriver();
                 break;
-
             case "safari":
                 driverManagerType = DriverManagerType.SAFARI;
                 WebDriverManager.getInstance(driverManagerType).setup();
 
                 driver = new SafariDriver();
                 break;
-
-                default:
+            default:
                 System.out.println("Browser " + ReadProperties.browserName() + " is not supported.");
                 break;
         }
     }
 
     public WebDriver getDriver() {
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+
 
         return driver;
     }

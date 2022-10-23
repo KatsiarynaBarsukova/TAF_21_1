@@ -1,6 +1,5 @@
 package baseEntities;
 
-import configuration.ReadProperties;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -14,9 +13,9 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() {
         driver = new BrowsersService().getDriver();
-        driver.get(ReadProperties.getUrl());
+        //driver.get(ReadProperties.getUrl());
 
-        loginStep = new LoginStep(driver);
+        //loginStep = new LoginStep(driver);
     }
 
     @AfterMethod
