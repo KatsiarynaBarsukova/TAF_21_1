@@ -10,6 +10,7 @@ public class LoginPage extends BasePage {
     private final By emailInputLocator = By.id("name");
     private final By pswInputLocator = By.id("password");
     private final By loginButtonLocator = By.id("button_primary");
+    private final By errorTextLocator = By.className("error-text");
 
     // Блок инициализации страницы
     public LoginPage(WebDriver driver) {
@@ -29,10 +30,5 @@ public class LoginPage extends BasePage {
     public void setEmail(String value) { getEmailInput().sendKeys(value); }
     public void setPsw(String value) { getPswInput().sendKeys(value); }
     public void clickLoginButton() { getLoginButton().click(); }
-
-    public void loginSuccessful(String email, String psw) {
-        setEmail(email);
-        setPsw(psw);
-        clickLoginButton();
-    }
+    public WebElement getErrorTextElement() { return driver.findElement(errorTextLocator); }
 }
