@@ -39,6 +39,6 @@ public class ActionsTest extends BaseTest {
         fileUploadPath.sendKeys(pathToFile);
         wait.waitForExists(By.id("file-submit")).submit();
 
-        Thread.sleep(5000);
+        Thread.sleep(7000);
     }
 }
