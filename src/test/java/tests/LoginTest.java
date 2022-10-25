@@ -4,8 +4,8 @@ import baseEntities.BaseTest;
 import configuration.ReadProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.projects.AddProjectPage;
 import pages.DashboardPage;
+import pages.projects.AddProjectPage;
 import pages.projects.UpdateProjectPage;
 
 public class LoginTest extends BaseTest {
