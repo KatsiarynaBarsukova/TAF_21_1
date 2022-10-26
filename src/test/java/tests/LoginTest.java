@@ -5,10 +5,12 @@ import configuration.ReadProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
+import pages.LoginPage;
 import pages.projects.AddProjectPage;
 import pages.projects.UpdateProjectPage;
 
 public class LoginTest extends BaseTest {
+LoginPage loginPage;
 
 
     @Test
