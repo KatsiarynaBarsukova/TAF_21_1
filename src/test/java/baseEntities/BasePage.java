@@ -3,23 +3,17 @@ package baseEntities;
 import configuration.ReadProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import services.WaitsService;
 
 public abstract class BasePage {
     protected WebDriver driver;
-    public BasePage(WebDriver driver) throws Exception {
+    protected WaitsService waitsService;
+
+    public BasePage(WebDriver driver) {
         this.driver = driver;
-
-        if (!isPageOpened()) {
-            int i = 0;
-            while (i < 30 && isPageOpened()) {
-                Thread.sleep(1000);
-            }
-        }
-
-        if (!isPageOpened()) {
-            throw new Exception("Page has not been opened.");
-        }
+        waitsService = new WaitsService(driver);
     }
+
     protected abstract By getPageIdentifier();
 
     public boolean isPageOpened() {

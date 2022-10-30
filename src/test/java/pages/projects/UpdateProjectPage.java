@@ -9,7 +9,7 @@ public class UpdateProjectPage extends BaseProjectPage {
     }
 
     @Override
-    protected By getPageIdentifier() {
+    protected By getPageIdentifier(By SummaryInfolabelLocator) {
         return null;
     }
 }

@@ -1,7 +1,6 @@
 package pages;
 
 import baseEntities.BasePage;
-import configuration.ReadProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +9,7 @@ public class LoginPage extends BasePage {
     // Блок описания селекторов для элементов
     private final By emailInputLocator = By.id("name");
     private final By pswInputLocator = By.id("password");
-    private final By loginButtonLocator = By.id("button_primary");
+    private final By loginButtonLocator = By.id("login-button");
     private final By errorTextLocator = By.className("error-text");
 
     // Блок инициализации страницы
@@ -20,7 +19,7 @@ public class LoginPage extends BasePage {
     }
 
     @Override
-    protected By getPageIdentifier() {
+    protected By getPageIdentifier(By SummaryInfolabelLocator) {
         return loginButtonLocator;
     }
 

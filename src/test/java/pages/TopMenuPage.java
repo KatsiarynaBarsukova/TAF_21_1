@@ -3,7 +3,6 @@ package pages;
 import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class TopMenuPage extends BasePage {
     // Блок описания селекторов для элементов
@@ -15,7 +14,7 @@ public class TopMenuPage extends BasePage {
        }
 
     @Override
-    protected By getPageIdentifier() {
+    protected By getPageIdentifier(By SummaryInfolabelLocator) {
         return pageIdentifier;
     }
 

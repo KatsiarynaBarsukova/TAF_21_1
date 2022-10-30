@@ -5,6 +5,7 @@ import configuration.ReadProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CartPage;
+import pages.CheckoutPage;
 import pages.projects.AddProjectPage;
 import pages.DashboardPage;
 import pages.projects.UpdateProjectPage;
@@ -19,6 +20,8 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(new DashboardPage(driver).isPageOpened());
 
         Assert.assertTrue(new CartPage(driver).isPageOpened());
+
+        Assert.assertTrue(new CheckoutPage(driver).isPageOpened());
 
     }
 
@@ -41,5 +44,6 @@ public class LoginTest extends BaseTest {
     public void incorrectPswTest() {
         new UpdateProjectPage(driver).nameInput();
         new AddProjectPage(driver).getSaveButton();
+
     }
 }

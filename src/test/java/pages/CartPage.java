@@ -16,7 +16,7 @@ public class CartPage extends BasePage {
         super(driver);
     }
     @Override
-    protected By getPageIdentifier() {
+    protected By getPageIdentifier(By SummaryInfolabelLocator) {
         return headerSecondaryContainerLocator;
     }
 
