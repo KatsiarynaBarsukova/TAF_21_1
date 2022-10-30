@@ -8,7 +8,7 @@ import pages.LoginPage;
 public class LoginStep extends BaseStep {
     LoginPage loginPage;
 
-    public LoginStep(WebDriver driver) {
+    public LoginStep(WebDriver driver) throws Exception {
         super(driver);
 
         loginPage = new LoginPage(driver);

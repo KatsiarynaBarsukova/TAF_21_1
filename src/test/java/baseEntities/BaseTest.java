@@ -12,7 +12,7 @@ public class BaseTest {
     protected LoginStep loginStep;
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws Exception {
         driver = new BrowsersService().getDriver();
         driver.get(ReadProperties.getUrl());
 

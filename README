@@ -1,0 +1,88 @@
+ID	SUMMARY			COMMENT
+BAS_1	Сайт https://www.saucedemo.com/ открывается и доступен (вход осуществлялся 10 раз)	Homepage			Smoke
+BAS_2	Проверка входа на сайт https://www.saucedemo.com/ без логина и пароля 	Homepage		Epic sadface: Username is required	Smoke
+Вход c помощью логина locked_out_user и пароля secret_sauce
+BAS_3	Проверка входа на сайт https://www.saucedemo.com/ c помощью логина locked_out_user и пароля secret_sauce			Epic sadface: Sorry, this user has been locked out.	Smoke
+Вход c помощью логина problem_user_user и пароля secret_sauce
+BAS_4	Проверка входа на сайт https://www.saucedemo.com/ c помощью логина problem_user_user и пароля secret_sauce			Открывается страница каталога товара. Фотография товара - собака с тенисным мячом. 	Smoke
+BAS_5	Проверяем работу кнопок ADD TO CART, при  логине problem_user и пароле secret_sauce			Кнопки ADD TO CART РАБОТАЮ 3 из 6  С помощью 3 кнопкок ADD TO CART можно выбрать товар. Остальные 3 кнопки ADD TO CART не реагируют на нажатие.	Smoke
+BAS_6	Нажимаем кнопку Name (Z to A), при  логине problem_user и пароле secret_sauce			Ничего не происходит	Smoke
+BAS_7	Нажимаем кнопку Name (A to Z), при  логине problem_user и пароле secret_sauce			Ничего не происходит	Smoke
+BAS_8	Нажимаем кнопку Price (lov to high), при  логине problem_user и пароле secret_sauce			Ничего не происходит	Smoke
+BAS_9	Нажимаем кнопку Price (high to lov), при  логине problem_user и пароле secret_sauce			Ничего не происходит	Smoke
+BAS_10	Нажимаем кнопку меню - выбираем ALL ITEMS			Ничего не происходит	Smoke
+BAS_11	Нажимаем кнопку меню - выбираем ABOUT			404 error	Smoke
+BAS_12	Нажимаем кнопку меню - выбираем LOGOUT			Кнопка возвращает на страницу для ввода логина и пароля и позволяет ввести пароль и логин	Smoke
+BAS_13	Нажимаем кнопку меню - выбираем RESET APP STATE			Удаляется товар в корзине	Smoke
+BAS_14	Нажимаем кнопку корзины, выбраны 3 товара (одна из попыток зайти в корзину)			Возвращает на страницу для ввода логина и пароля. Epic sadface: You can only access '/cart.html' when you are logged in.	Smoke
+BAS_15	Нажимаем кнопку корзины, выбраны 3 товара 			Корзина открывается	Smoke
+BAS_16	В корзине товара, пробуем изменить количество товара 			Количества товара изменить нельзя	Smoke
+BAS_17	При нажатитии кнопки REMOVE			Товар удаляется	Smoke
+BAS_18	При нажатитии кнопки CONTINUE SHOPPING			Возвращаемся на страницу каталога товара	Smoke
+BAS_19	При нажатитии кнопки CHECKOUT (одна из попыток)			"Возвращает на страницу для ввода логина и пароля. Epic sadface: You can only access '/checkout-step-one.html' when you are logged in.
+"	Smoke
+BAS_20	При нажатитии кнопки CHECKOUT			Переходит на следующую страницу 	Smoke
+BAS_21	В каталоге товара, выбираем кнопку товар			Переходит на страницу товара	Smoke
+BAS_22	На странице товара , нажимаем кнопку ADD TO CART			Товар не добавляется в корзину	Smoke
+BAS_23	В корзине товара, выбираем кнопку товар			Переходит на страницу товара	Smoke
+BAS_24	На странице CHECKOUT: YOUR INFORMATION, вводим буквенное значение в First Name 			Значение вводиться без ограничения количества 	Smoke
+BAS_25	На странице CHECKOUT: YOUR INFORMATION, вводим недопустимое значение в First Name из цифр и символов			Недопустимое значение без ограничения количества 	Smoke
+BAS_26	На странице CHECKOUT: YOUR INFORMATION, вводим недопустимое значение в Last Name 			"Возвращает на страницу для ввода логина и пароля. Epic sadface: You can only access '/checkout-step-one.html' when you are logged in.
+"	Smoke
+BAS_27	На странице CHECKOUT: YOUR INFORMATION, вводим допустимое значение в First Name и Last Name			Значение из Last Name переходит в First Name	Smoke
+REG_1	На странице CHECKOUT: YOUR INFORMATION, вводим недопустимое значение в Zip Postal Code			Error: Last Name is required 	Regression
+REG_2	На странице CHECKOUT: YOUR INFORMATION, вводим допустимое значение в Zip Postal Code			Error: Last Name is required 	Regression
+Вход c помощью логина performance_glitch_user и пароля secret_sauce
+BAS_28	Проверка входа на сайт https://www.saucedemo.com/ c помощью логина performance_glitch_user и пароля secret_sauce			Открывается страница каталога товара	Smoke
+BAS_29	Проверяем работу кнопок ADD TO CART, при  логине performance_glitch_user и пароле secret_sauce			Товар добавляется в корзину	Smoke
+BAS_30	Нажимаем кнопку Name (Z to A), c помощью логина performance_glitch_user и пароля secret_sauce			Каталог товара меняется по заданым параметрам	Smoke
+BAS_31	Нажимаем кнопку Name (A to Z), c помощью логина performance_glitch_user и пароля secret_sauce			Каталог товара меняется по заданым параметрам	Smoke
+BAS_32	Нажимаем кнопку Price (lov to high), при  логине problem_user и пароле secret_sauce			Каталог товара меняется по заданым параметрам	Smoke
+BAS_33	Нажимаем кнопку Price (high to lov), c помощью логина performance_glitch_user и пароля secret_sauce			Каталог товара меняется по заданым параметрам	Smoke
+BAS_34	Нажимаем кнопку меню - выбираем ALL ITEMS			"Возвращает на страницу для ввода логина и пароля. Epic sadface: You can only access '/inventory.html' when you are logged in.
+"	Smoke
+BAS_35	Нажимаем кнопку меню - выбираем ABOUT			Переходит на страницу о компании	Smoke
+BAS_36	Нажимаем кнопку меню - выбираем LOGOUT			Возвращает на страницу для ввода логина и пароля	Smoke
+BAS_37	Нажимаем кнопку меню - выбираем RESET APP STATE			Удаляется товар в корзине	Smoke
+BAS_38	Нажимаем кнопку корзины, выбран товар 			Корзина открывается	Smoke
+BAS_39	В корзине товара, пробуем изменить количество товара 			Количества товара изменить нельзя	Smoke
+BAS_40	В корзине товара, При нажатитии кнопки REMOVE			Товар удаляется	Smoke
+BAS_41	В корзине товара, При нажатитии кнопки CONTINUE SHOPPING			Возвращаемся на страницу каталога товара	Smoke
+BAS_42	В корзине товара, При нажатитии кнопки CHECKOUT			Переходит на следующую страницу 	Smoke
+BAS_43	В каталоге товара, выбираем кнопку товар			Переходит на страницу товара	Smoke
+BAS_44	В корзине товара, выбираем кнопку товар (одна из попыток)			"Возвращает на страницу для ввода логина и пароля. Epic sadface: You can only access '/inventory.html' when you are logged in.
+"	Smoke
+BAS_45	В корзине товара, выбираем кнопку товар			Переходит на страницу товара	Smoke
+BAS_46	На странице CHECKOUT: YOUR INFORMATION, вводим допустимое значение в First Name и Last Name, Zip Postal Code			Переходит на страницу оплаты CHECKOUT: OVERVIEW	Smoke
+BAS_47	На странице CHECKOUT: YOUR INFORMATION, вводим недопустимое значение в First Name и Last Name, Zip Postal Code			"Возвращает на страницу для ввода логина и пароля. Epic sadface: You can only access '/inventory.html' when you are logged in.
+"	Smoke
+BAS_48	Страница оплаты CHECKOUT: OVERVIEW нажимаем кнопку CANCEL			Возрашается на страницу каталога товара	Smoke
+BAS_49	Страница оплаты CHECKOUT: OVERVIEW нажимаем кнопку FINISH			"Your order has been dispatched, and will arrive just as fast as the pony can get there!
+"	Smoke
+Вход c помощью логина standard_user и пароля secret_sauce
+BAS_50	Проверка входа на сайт https://www.saucedemo.com/ c помощью логина standard_user и пароля secret_sauceauce			Открывается страница каталога товара	Smoke
+BAS_51	Проверяем работу кнопок ADD TO CART, c помощью логина standard_user и пароля secret_sauce			Товар добавляется в корзину	Smoke
+BAS_52	Нажимаем кнопку Name (Z to A), c помощью логина standard_user и пароля secret_sauce			Каталог товара меняется по заданым параметрам	Smoke
+BAS_53	Нажимаем кнопку Name (A to Z), c помощью логина standard_user и пароля secret_sauce			Каталог товара меняется по заданым параметрам	Smoke
+BAS_54	Нажимаем кнопку Price (lov to high), c помощью логина standard_user и пароля secret_sauce			Каталог товара меняется по заданым параметрам	Smoke
+BAS_55	Нажимаем кнопку Price (high to lov), c помощью логина standard_user и пароля secret_sauce			Каталог товара меняется по заданым параметрам	Smoke
+BAS_56	После выбора последовательности товара в зависимости от PRICE и NAME 			Несоответствие количества товара в корзине и на странице каталог товара, выбор кнопок REMOVE и ADD TO CARD
+BAS_57	Нажимаем кнопку меню - выбираем ALL ITEMS			"Возвращает на страницу каталога товара
+"	Smoke
+BAS_58	Нажимаем кнопку меню - выбираем ABOUT			Переходит на страницу о компании	Smoke
+BAS_59	Нажимаем кнопку меню - выбираем LOGOUT			Возвращает на страницу для ввода логина и пароля	Smoke
+BAS_60	Нажимаем кнопку меню - выбираем RESET APP STATE			Удаляется товар в корзине	Smoke
+BAS_61	Нажимаем кнопку корзины, выбран товар 			Корзина открывается	Smoke
+BAS_62	В корзине товара, пробуем изменить количество товара 			Количества товара изменить нельзя	Smoke
+BAS_63	В корзине товара, при нажатитии кнопки REMOVE			Товар удаляется	Smoke
+BAS_64	В корзине товара, при нажатитии кнопки CONTINUE SHOPPING			Возвращаемся на страницу каталога товара	Smoke
+BAS_65	В корзине товара, при нажатитии кнопки CHECKOUT			Переходит на следующую страницу 	Smoke
+BAS_66	В каталоге товара, выбираем кнопку товар			Переходит на страницу товара	Smoke
+BAS_67	В корзине товара, выбираем кнопку товар			Переходит на страницу товара	Smoke
+BAS_68	На странице CHECKOUT: YOUR INFORMATION, вводим допустимое значение в First Name и Last Name, Zip Postal Code			Переходит на страницу оплаты CHECKOUT: OVERVIEW	Smoke
+BAS_69	На странице CHECKOUT: YOUR INFORMATION, вводим недопустимое значение в First Name и Last Name, Zip Postal Code			Переходит на страницу оплаты CHECKOUT: OVERVIEW	Smoke
+BAS_70	Страница оплаты CHECKOUT: OVERVIEW нажимаем кнопку CANCEL			"Возвращает на страницу для ввода логина и пароля. Epic sadface: You can only access '/inventory.html' when you are logged in.
+"	Smoke
+BAS_71	Страница оплаты CHECKOUT: OVERVIEW нажимаем кнопку FINISH			"THANK YOU FOR YOUR ORDER
+Your order has been dispatched, and will arrive just as fast as the pony can get there!
+"	Smoke

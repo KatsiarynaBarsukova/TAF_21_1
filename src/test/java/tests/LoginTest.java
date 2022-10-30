@@ -4,6 +4,7 @@ import baseEntities.BaseTest;
 import configuration.ReadProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CartPage;
 import pages.projects.AddProjectPage;
 import pages.DashboardPage;
 import pages.projects.UpdateProjectPage;
@@ -12,10 +13,13 @@ public class LoginTest extends BaseTest {
 
 
     @Test
-    public void successLoginTest() {
+    public void successLoginTest() throws Exception {
         loginStep.login(ReadProperties.username(), ReadProperties.password());
 
         Assert.assertTrue(new DashboardPage(driver).isPageOpened());
+
+        Assert.assertTrue(new CartPage(driver).isPageOpened());
+
     }
 
     @Test

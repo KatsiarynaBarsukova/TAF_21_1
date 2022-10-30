@@ -1,6 +1,7 @@
 package pages;
 
 import baseEntities.BasePage;
+import configuration.ReadProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,8 @@ public class LoginPage extends BasePage {
     private final By errorTextLocator = By.className("error-text");
 
     // Блок инициализации страницы
-    public LoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) throws Exception {
+
         super(driver);
     }
 
@@ -23,7 +25,7 @@ public class LoginPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getEmailInput() { return driver.findElement(emailInputLocator); }
+    public WebElement getEmailInput() { return waitsService.waitForVisibilityBy(emailInputLocator); }
     public WebElement getPswInput() { return driver.findElement(pswInputLocator); }
     public WebElement getLoginButton() { return driver.findElement(loginButtonLocator); }
 
