@@ -6,8 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.LoginPage;
-import pages.projects.AddProjectPage;
-import pages.projects.UpdateProjectPage;
 
 public class LoginTest extends BaseTest {
 LoginPage loginPage;
@@ -36,8 +34,10 @@ LoginPage loginPage;
     }
 
     @Test
-    public void incorrectPswTest() {
-        new UpdateProjectPage(driver).nameInput();
-        new AddProjectPage(driver).getSaveButton();
+    public void fail_incorrectUsernameTest() {
+        Assert.assertEquals(
+                loginStep.loginIncorrect("sdsd", ReadProperties.password())
+                        .getErrorTextElement().getText()
+                , "Email/Login or Password is incorrect. Please try again.111");
     }
 }
