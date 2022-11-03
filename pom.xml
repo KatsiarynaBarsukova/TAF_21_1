@@ -15,7 +15,7 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <aspectj.version>1.9.5</aspectj.version>
+        <aspectj.version>1.8.10</aspectj.version>
 
         <testng.version>7.6.1</testng.version>
 
@@ -28,6 +28,7 @@
             <artifactId>testng</artifactId>
            <version>${testng.version}</version>
         </dependency>
+
         <dependency>
 
         <groupId>org.testng</groupId>
