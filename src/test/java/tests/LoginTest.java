@@ -5,11 +5,12 @@ import configuration.ReadProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
-import pages.LoginPage;
+import steps.LoginStep;
 
 public class LoginTest extends BaseTest {
-LoginPage loginPage;
 
+
+    private LoginStep loginStep;
 
     @Test
     public void successLoginTest() {
@@ -33,7 +34,7 @@ LoginPage loginPage;
                 , "Email/Login or Password is incorrect. Please try again.");
     }
 
-   // @Test
+    //@Test
     public void fail_incorrectUsernameTest() {
         Assert.assertEquals(
                 loginStep.loginIncorrect("sdsd", ReadProperties.password())
