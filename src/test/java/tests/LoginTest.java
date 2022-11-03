@@ -32,8 +32,7 @@ LoginPage loginPage;
                         .getErrorTextElement().getText()
                 , "Email/Login or Password is incorrect. Please try again.");
     }
-
-    @Test
+      @Test
     public void fail_incorrectUsernameTest() {
         Assert.assertEquals(
                 loginStep.loginIncorrect("sdsd", ReadProperties.password())
