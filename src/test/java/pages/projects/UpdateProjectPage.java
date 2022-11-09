@@ -1,6 +1,5 @@
 package pages.projects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class UpdateProjectPage extends BaseProjectPage {
@@ -8,8 +7,5 @@ public class UpdateProjectPage extends BaseProjectPage {
         super(driver);
     }
 
-    @Override
-    protected By getPageIdentifier() {
-        return null;
-    }
+
 }
