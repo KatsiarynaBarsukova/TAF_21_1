@@ -6,29 +6,37 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
-    // Блок описания селекторов для элементов
-    private final By emailInputLocator = By.id("name");
-    private final By pswInputLocator = By.id("password");
-    private final By loginButtonLocator = By.id("button_primary");
-    private final By errorTextLocator = By.className("error-text");
+    private static String ENDPOINT = "/auth/login";
 
-    // Блок инициализации страницы
+    private static final By PAGE_OPENED_IDENTIFIER = By.id("button_primary");
+
+    protected By emailSelector = By.id("name");
+    protected By passwordSelector = By.id("password");
+    protected By loginSelector = By.id("button_primary");
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
-    protected By getPageIdentifier() {
-        return loginButtonLocator;
+    protected void openPage() {
+        driver.get(BASE_URL + ENDPOINT);
     }
 
-    // Блок атомарных методов
-    public WebElement getEmailInput() { return waitsService.waitForVisibilityBy(emailInputLocator); }
-    public WebElement getPswInput() { return driver.findElement(pswInputLocator); }
-    public WebElement getLoginButton() { return driver.findElement(loginButtonLocator); }
+    @Override
+    protected boolean isPageOpened() {
+        return waits.waitForVisibility(PAGE_OPENED_IDENTIFIER).isDisplayed();
+    }
 
-    public void setEmail(String value) { getEmailInput().sendKeys(value); }
-    public void setPsw(String value) { getPswInput().sendKeys(value); }
-    public void clickLoginButton() { getLoginButton().click(); }
-    public WebElement getErrorTextElement() { return driver.findElement(errorTextLocator); }
+    public WebElement getEmailField() {
+        return driver.findElement(emailSelector);
+    }
+
+    public WebElement getPasswordField() {
+        return driver.findElement(passwordSelector);
+    }
+
+    public WebElement getLoginButton() {
+        return driver.findElement(loginSelector);
+    }
 }
