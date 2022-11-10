@@ -1,11 +1,18 @@
 package models;
 
+import java.util.Objects;
+
 public class Project {
     private String name;
     private String description;
     private int type;
     private boolean showAnon;
     private boolean access;
+    private boolean deleted;
+
+    public boolean isDeleted() {
+        return deleted;
+    }
 
     public String getName() {
         return name;
@@ -45,5 +52,13 @@ public class Project {
 
     public void setAccess(boolean access) {
         this.access = access;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Project project = (Project) o;
+        return type == project.type && showAnon == project.showAnon && access == project.access && deleted == project.deleted && Objects.equals(name, project.name) && Objects.equals(description, project.description);
     }
 }
