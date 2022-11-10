@@ -3,6 +3,12 @@ package models;
 import java.util.Objects;
 
 public class Project {
+    public String getName;
+    public String getDescription;
+    public boolean getShowAnon;
+    public int getType;
+    public boolean getAccess;
+    public boolean isDeleted;
     private String name;
     private String description;
     private int type;
@@ -61,5 +67,8 @@ public class Project {
         if (o == null || getClass() != o.getClass()) return false;
         Project project = (Project) o;
         return type == project.type && showAnon == project.showAnon && access == project.access && deleted == project.deleted && Objects.equals(name, project.name) && Objects.equals(description, project.description);
+    }
+
+    public void setDeleted(boolean b) {
     }
 }

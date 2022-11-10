@@ -8,7 +8,7 @@ public class User {
         private User newUser;
 
         public Buider() {
-            newUser = new User;
+            newUser = new User();
         }
 
         public Buider withEmail(String value) {
