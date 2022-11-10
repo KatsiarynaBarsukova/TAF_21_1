@@ -10,6 +10,7 @@ public class Project {
     private boolean access;
     private boolean deleted;
 
+
     public boolean isDeleted() {
         return deleted;
     }
