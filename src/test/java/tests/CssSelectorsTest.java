@@ -24,28 +24,28 @@ public class CssSelectorsTest {
         driver.get("file:C:\\Users\\sony\\IdeaProjects\\TAF_21_1\\src\\test\\resources\\index.html");
 
         // Поиск по id
-        Assert.assertTrue(driver.findElement(By.cssSelector("#my-Address")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("#shopping_cart_container")).isDisplayed());
 
         // Поиск по class name
-        Assert.assertTrue(driver.findElement(By.cssSelector(".newsletter")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector(".shopping_cart_link")).isDisplayed());
 
         // Поиск по нескольким значения в аттрибуте class
-        Assert.assertTrue(driver.findElement(By.cssSelector(".noSel.newsletter")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector(".btn.btn_secondary.btn_small.cart_button")).isDisplayed());
 
         // Поиск по tag name
-        Assert.assertTrue(driver.findElement(By.cssSelector("h1")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("Your Cart")).isDisplayed());
 
         // Поиск по tag и значению из аттрибута class
-        Assert.assertTrue(driver.findElement(By.cssSelector("div.intro")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("button.react-burger-menu-btn")).isDisplayed());
 
         // Поиск по class с учетом иерархии
-        Assert.assertEquals(2, driver.findElements(By.cssSelector("#Lastname .markup")).size());
+        Assert.assertEquals(2, driver.findElements(By.cssSelector("#form_group.user-name")).size());
 
         // Поиск всех элементов с тэгом h1 или p
-        Assert.assertEquals(8, driver.findElements(By.cssSelector("h1, p")).size());
+        Assert.assertEquals(8, driver.findElements(By.cssSelector("inventory_item_img, div")).size());
 
         // Поиск всех элементов с тэгом p у которых непосредственный родитель с тэгом div
-        Assert.assertEquals(6, driver.findElements(By.cssSelector("div > p")).size());
+        Assert.assertEquals(6, driver.findElements(By.cssSelector("div>a")).size());
 
         // Поиск всех элементов с тэгом p которые идут сразу за элементом с тэго ul
         Assert.assertEquals(1, driver.findElements(By.cssSelector("ul + p")).size());
@@ -54,9 +54,9 @@ public class CssSelectorsTest {
         Assert.assertEquals(2, driver.findElements(By.cssSelector("p ~ div")).size());
 
         // Поиск всех элементов у которых присутствует аттрибут title
-        Assert.assertEquals(1, driver.findElements(By.cssSelector("[title]")).size());
+        Assert.assertEquals(1, driver.findElements(By.cssSelector("[style=`text/css`]")).size());
 
-        // Поиск всех элементов у которых присутствует аттрибут style с конкретным значением
+        /* Поиск всех элементов у которых присутствует аттрибут style с конкретным значением
         Assert.assertEquals(1, driver.findElements(By.cssSelector("[style='overflow: auto;']")).size());
 
         // Поиск всех элементов у которых присутствует аттрибут id со значением начинающимся на какое-то value-
@@ -93,6 +93,6 @@ public class CssSelectorsTest {
         Assert.assertEquals(2, driver.findElements(By.cssSelector("p:last-child")).size());
 
         // Поиск элемента с тэгом p и которым является n-ым дочерним элементом
-        Assert.assertEquals(1, driver.findElements(By.cssSelector("p:nth-child(2)")).size());
+        Assert.assertEquals(1, driver.findElements(By.cssSelector("p:nth-child(2)")).size());*/
     }
 }
