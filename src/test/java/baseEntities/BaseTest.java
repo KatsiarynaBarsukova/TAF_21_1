@@ -1,56 +1,64 @@
 package baseEntities;
 
 import configuration.ReadProperties;
-import io.qameta.allure.Attachment;
-import io.qameta.allure.Description;
+import models.Project;
+import models.User;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import services.BrowsersService;
-import steps.LoginStep;
-import utils.InvokedListener;
+import steps.MilestoneSteps;
+import steps.ProjectSteps;
+import utils.Listener;
+import utils.Randomization;
+import utils.Waits;
 
-@Listeners(InvokedListener.class)
+@Listeners(Listener.class)
 public class BaseTest {
-    protected WebDriver driver;
-    protected LoginStep loginStep;
+    public WebDriver driver;
+    protected BrowsersService browsersService;
+    protected Waits waits;
 
-    @BeforeMethod(description = "Настройка")
-    @Description("Настройка")
-    public void setUp(ITestContext iTestContext) {
-        driver = new BrowsersService().getDriver();
-        // Solution 1
-        iTestContext.setAttribute("driver", driver);
-        // Solution 1 - Finish
+    protected ProjectSteps projectSteps;
+    protected MilestoneSteps milestoneSteps;
+
+    protected User user;
+    protected Project addProject;
+    protected Project updateProject;
+
+    @BeforeTest
+    public void setUpData() {
+        user = User.builder()
+                .email(ReadProperties.getUsername())
+                .password(ReadProperties.getPassword())
+                .build();
+
+        addProject = Project.builder()
+                .name(Randomization.getRandomString(8))
+                .typeOfProject(Randomization.getRandomType())
+                .build();
+
+        updateProject = Project.builder()
+                .name(Randomization.getRandomString(8))
+                .typeOfProject(Randomization.getRandomType())
+                .build();
+    }
+
+    @BeforeClass
+    public void setUp() {
+        browsersService = new BrowsersService();
+        driver = browsersService.getDriver();
+        waits = new Waits(driver);
+        projectSteps = new ProjectSteps(driver);
+        milestoneSteps = new MilestoneSteps(driver);
 
         driver.get(ReadProperties.getUrl());
-
-        loginStep = new LoginStep(driver);
     }
 
-    @AfterMethod(description = "Завершение")
-    public void tearDown(ITestResult testResult) {
-        // Solution - 2: Плохое решение - потому, что Screenshot добавляется в шаг TearDown
-        /*
-        if (testResult.getStatus() == ITestResult.FAILURE) {
-            try {
-                byte[] srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-                saveScreenshot(srcFile);
-            } catch (NoSuchSessionException ex) {
-
-            }
-        }
-        */
+    @AfterClass
+    public void closePage() {
         driver.quit();
     }
-
-    // Solution - 2:
-    @Attachment(value = "Page screenshot", type = "image/png")
-    private byte[] saveScreenshot(byte[] screenshot) {
-        return screenshot;
-    }
-    // Solution - 2: Finish
 }
