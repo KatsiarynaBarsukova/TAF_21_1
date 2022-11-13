@@ -29,6 +29,8 @@ public class CssSelectorsTest {
         // Поиск по class name
         Assert.assertTrue(driver.findElement(By.cssSelector(".shopping_cart_link")).isDisplayed());
 
+        Assert.assertTrue(driver.findElement(By.cssSelector(".inventory_item_price")).isDisplayed());
+
         // Поиск по нескольким значения в аттрибуте class
         Assert.assertTrue(driver.findElement(By.cssSelector(".btn.btn_secondary.btn_small.cart_button")).isDisplayed());
 

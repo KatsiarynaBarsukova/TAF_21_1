@@ -1,68 +1,77 @@
 package tests;
 
-import configuration.ReadProperties;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import services.BrowsersService;
 
 public class xPathSelectors {
     private WebDriver driver;
 
     private static String absolutePath = "/html/body/div";
 
-    private static String allElementsInHTMLPath = "//*";  // Все элементы на странице начиная с html - тэга
+    // Все элементы на странице начиная с html - тэга
+    private static String allElementsInHTMLPath = "//*";
 
-    private static String bodyPath = "//body";  // Элемент по тэгу
+    // Элемент по тэгу
+    private static String bodyPath = "//body";
 
-    private static String childPath = "//form/input";  // Дочерний элемент относительно родителя
+    // Дочерний элемент относительно родителя
+    //private static String childPath = "//form/input";
 
-    private static String tagWithAttrPath = "//span[@id='access--1']";  // Поиск элемента с аттрибутом и его значением
+    // Поиск элемента с аттрибутом и его значением
+    //private static String tagWithAttrPath = "//span[@id='access--1']";
 
-    private static String parentPath1 = "//span[@id='access--1']//..";  // Поиск родителя у элемента с аттрибутом и его значением
-    private static String parentPath2 = "//*[@id='suite_mode_single']/parent::label;";  // Поиск родителя у элемента с аттрибутом и его значением
+    // Поиск родителя у элемента с аттрибутом и его значением
+    //private static String parentPath1 = "//span[@id='access--1']//..";
 
-    private static String elementByIndexPath = "(//form)[4]";  // Поиск элемента по индексу
+    // Поиск родителя у элемента с аттрибутом и его значением
+    //private static String parentPath2 = "//*[@id='suite_mode_single']/parent::label;";
 
-    private static String searchByTextPath = "//*[text()='New Widget']";  // Поиск элемента по полному соответствию по тексту
-    private static String searchByTextPath1 = "//*[.='New Widget']";  // Поиск элемента по полному соответствию по тексту
+    // Поиск элемента по индексу
+    //private static String elementByIndexPath = "(//form)[4]";
 
-    private static String searchBySubstringPath = "//*[contains(text(),'Widget')]";   // Поиск элемента по подстроке в тексте
+    // Поиск элемента по полному соответствию по тексту
+    private static String searchByTextPath = "//*[text()='Sauce Labs Bike Light']";
 
-    private static String searchByStartsWithPath = "//input[starts-with(@type, 'hi')]";//Поиск элемента по аттрибуту значение которого начинается с
-    private static String searchByTwoAttrPath = "//*[@class='form-control ' and @type='text']";   // Использование логического оператора
+    // Поиск элемента по полному соответствию по тексту
+    //private static String searchByTextPath1 = "//*[.='New Widget']";
 
-    private static String searchBySpecificAttrPath = "//input[@type != 'hidden']";   // Использование логического оператора
+    // Поиск элемента по подстроке в тексте
+    private static String searchBySubstringPath = "//*[contains(text(),'Open Menu')]";
+
+    //Поиск элемента по аттрибуту значение которого начинается с
+    private static String searchByStartsWithPath = "//input[starts-with(@type, 'bm')]";
+
+    // Использование логического оператора
+    //private static String searchByTwoAttrPath = "//*[@class='form-control ' and @type='text']";
+
+    // Использование логического оператора
+    //private static String searchBySpecificAttrPath = "//input[@type != 'hidden']";
 
     //Axes - Оси
     //Использование ancestor - все предки текущего узла
-    private static String path1 = "//*[@id='suite_mode_single_baseline']/ancestor::div";
+    private static String path1 = "//*[@id='cart_contents_container']/ancestor::div";
 
     //Использование child - все предки текущего узла зависят от уровня
     private static String path2_1 = "//ul/child::li";
-    private static String path2_2 = "//ul/li";  // аналог только проще
+    //private static String path2_2 = "//ul/li";  // аналог только проще
 
     //Использование descendant - Все предки текущего узла не зависимо от уровня
-    private static String path3_1 = "//ul/descendant::span";
-    private static String path3_2 = "//ul//span";  // аналог только проще
+    private static String path3_1 = "//a/descendant::span";
+    //private static String path3_2 = "//ul//span";  // аналог только проще
 
     //Использование following - Выбирает всё в документе после закрытия тэга текущего узла
-    private static String path4_1 = "//label[@for='announcement']/following::form";
-    private static String path4_2 = "(//label[@for='announcement']/following::div/*[@class='checkbox'])[1]";
+    private static String path4_1 = "//label[@for='announcement']/following::logo";
+    //private static String path4_2 = "(//label[@for='announcement']/following::div/*[@class='checkbox'])[1]";
 
     //Использование following-sibling - Выбирает все узлы одного уровня после текущего узла
     private static String path5_1 = "//label[@for='announcement']/following-sibling::div";
 
     //Использование preceding- Выбирает все узлы, которые появляются перед текущим узлом в документе
-    private static String path6_1 = "//label[@for='announcement']/preceding::div";
+    private static String path6_1 = "////label[@for='announcement']/preceding::container";
 
     //Использование preceding-sibling - Выбирает все узлы одного уровня до текущего узла
-    private static String path7_1 = "//label[@for='announcement']/preceding-sibling::div";
+    //private static String path7_1 = "//label[@for='announcement']/preceding-sibling::div";
 
-    @BeforeMethod
+   /* @BeforeMethod
     public void setup() {
         driver = new BrowsersService().getDriver();
     }
@@ -142,5 +151,5 @@ public class xPathSelectors {
 
         //Использование preceding-sibling - Выбирает все узлы одного уровня до текущего узла
         Assert.assertTrue(driver.findElement(By.xpath("//*[@class='dialog-title']/preceding-sibling::form")).isDisplayed());
-    }
+    }*/
 }
