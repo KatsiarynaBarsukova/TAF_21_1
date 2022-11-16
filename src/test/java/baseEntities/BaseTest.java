@@ -2,9 +2,8 @@ package baseEntities;
 
 import configuration.ReadProperties;
 import configuration.UpdateEnvironmentProperties;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.qameta.allure.Description;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
