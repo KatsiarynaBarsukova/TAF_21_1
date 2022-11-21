@@ -78,4 +78,31 @@ public class TestRailApiTest2 extends BaseApiTest {
 
         Assert.assertEquals(actualUser, expectedUser);
     }
+
+    @Test
+    public void getUsers(){
+        Gson gson = new Gson();
+
+        Response response = given()
+                .get(Endpoints.GET_ALL_Users);
+
+        User[] actualUserList = gson.fromJson(response.getBody().asPrettyString(),User[].class);
+
+        System.out.println(actualUserList);
+        Assert.assertEquals(actualUserList[0],expectedUser);
+
+    }
+    @Test
+    public void getUsers1(){
+        Gson gson = new Gson();
+
+        Response response = given()
+                .get(Endpoints.GET_ALL_Users);
+
+        User[] actualUserList = gson.fromJson(response.getBody().asPrettyString(),User[].class);
+
+        System.out.println(actualUserList.size());
+        Assert.assertEquals(actualUserList[0],expectedUser);
+
+    }
 }

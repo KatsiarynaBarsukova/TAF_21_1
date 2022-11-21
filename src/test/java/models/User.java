@@ -18,6 +18,7 @@ public class User {
     @EqualsAndHashCode.Exclude
     private int id;
 
+    //@Expose
     private String email;
     private String password;
 
