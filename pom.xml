@@ -26,7 +26,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-           <version>${testng.version}</version>
+            <version>${testng.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -59,6 +59,11 @@
             <version>1.18.24</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.4.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -71,11 +76,11 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
-                        <suiteXmlFiles>
-                            <!--suiteXmlFile>target/test-classes/${test.suite.filename}</suiteXmlFile-->
-                            <!--suiteXmlFile>target/test-classes/${xmlSuiteFilename}</suiteXmlFile-->
-                        </suiteXmlFiles>
-                   </configuration>
+                    <suiteXmlFiles>
+                        <!--suiteXmlFile>target/test-classes/${test.suite.filename}</suiteXmlFile-->
+                        <!--suiteXmlFile>target/test-classes/${xmlSuiteFilename}</suiteXmlFile-->
+                    </suiteXmlFiles>
+                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
