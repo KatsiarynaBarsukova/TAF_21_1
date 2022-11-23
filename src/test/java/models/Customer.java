@@ -1,17 +1,15 @@
 package models;
 
-import lombok.Builder;
-import lombok.Data;
+
+import jakarta.persistence.*;
 
 public class Customer {
+@Entity
+    @Table(name = "Customer")
+    public class Customer{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Builder
-    @Data
-    public class Customer {
-        private String id;
-        private String firstname;
-        private String lastName;
-        private String email;
-        private ing age;
+    @Column(name = "FirstName")
     }
 }

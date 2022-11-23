@@ -2,6 +2,7 @@ package tests.db;
 
 import baseEntities.BaseApiTest;
 import dbEntities.CustomersTable;
+import dbServies.CustomerService;
 import models.Customer;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,6 +10,7 @@ import services.DataBaseService;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class SimpleDBTest extends BaseApiTest {
 
@@ -41,17 +43,27 @@ public class SimpleDBTest extends BaseApiTest {
 
         ResultSet rs = customersTable.getCustomer();
 
-        try{
-        while (rs.next()){
-            String userid = rs.getString("ID");
-            String firsname = rs.getString("firsname");
-            String Lastname = rs.getString("Lastname");
-            int age = rs.getInt("age");
+        try {
+            while (rs.next()) {
+                String userid = rs.getString("ID");
+                String firsname = rs.getString("firsname");
+                String Lastname = rs.getString("Lastname");
+                int age = rs.getInt("age");
 
-         }
-    }catch (SQLException e){
+            }
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        @Test
+        public void hibernateTest () {
+            CustomerService customerService = new CustomerService();
+            Customer customer = new CustomerService("Ivan", "Grigoriev", "qrtest@test.com", 30);
 
+            List<Customer> customerList = customerService.findAllUser();
+            for (Customer user : customerList) {
+                System.out.println(user.toString());
+            }
 
+        }
+    }
 }
