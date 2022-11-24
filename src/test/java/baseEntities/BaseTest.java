@@ -2,7 +2,6 @@ package baseEntities;
 
 import configuration.ReadProperties;
 import configuration.UpdateEnvironmentProperties;
-import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.qameta.allure.Description;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +24,7 @@ public class BaseTest {
 
     @BeforeMethod(description = "Настройка")
     @Description("Настройка")
-    public void setUp(@NotNull ITestContext iTestContext) {
+    public void setUp(ITestContext iTestContext) {
         driver = new BrowsersService().getDriver();
         iTestContext.setAttribute("driver", driver);
 

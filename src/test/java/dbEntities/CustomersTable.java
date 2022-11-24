@@ -1,12 +1,13 @@
 package dbEntities;
 
-import models.Customer;
+import models.CustomerBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import services.DataBaseService;
-
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
+import java.sql.ResultSet;
 
 public class CustomersTable {
+    Logger logger = LoggerFactory.getLogger(CustomersTable.class);
     private DataBaseService dataBaseService;
 
     public CustomersTable(DataBaseService dataBaseService) {
@@ -14,14 +15,14 @@ public class CustomersTable {
     }
 
     public void dropTable() {
-        System.out.println("Удаляем customers таблицу");
+        logger.trace("Удаляем customers таблицу");
         String dropTableCustomersSQL = "DROP TABLE Customers;";
 
         dataBaseService.executeSQL(dropTableCustomersSQL);
     }
 
     public void createCustomersTable() {
-        System.out.println("Создаем customers таблицу");
+        logger.info("Создаем customers таблицу");
 
         String createTableSQL = "CREATE TABLE Customers (" +
                 "ID SERIAL PRIMARY KEY, " +
@@ -34,7 +35,7 @@ public class CustomersTable {
         dataBaseService.executeSQL(createTableSQL);
     }
 
-    public void addCustomer(Customer customer) {
+    public void addCustomer(CustomerBuilder customer) {
         String insertTableSQL = "INSERT INTO public.Customers(" +
                 "firstname, lastname, email, age)" +
                 "VALUES ('" + customer.getFirstname() + "', '" + customer.getLastName() +
@@ -42,8 +43,16 @@ public class CustomersTable {
 
         dataBaseService.executeSQL(insertTableSQL);
     }
-    public ResultSet getCustomer(){
 
-        return dataBaseService.executeQuery(selectSQR);
+    public ResultSet getCustomers() {
+        String selectSQL = "SELECT * FROM public.customers;";
+
+        return dataBaseService.executeQuery(selectSQL);
+    }
+
+    public ResultSet getCustomersById(int id) {
+        String selectSQL = "SELECT * FROM public.customers WHERE id = " + id + ";";
+
+        return dataBaseService.executeQuery(selectSQL);
     }
 }

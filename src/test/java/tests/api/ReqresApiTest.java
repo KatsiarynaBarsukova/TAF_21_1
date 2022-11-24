@@ -11,51 +11,47 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
 public class ReqresApiTest {
+
     @Test
-    public void simpleStepByStepApiTest(){
+    public void simpleStepByStepApiTest() {
+        // Setup RestAssured
+        RestAssured.baseURI = "https://reqres.in";
 
-        //Setup RestAssred
-        RestAssured.baseURI = "https://reques.in/";
-
-        //Setup endpoint
+        // Setup endpoint
         int userID = 2;
-        String endpoint = "/api/users/"+ userID;
+        String endpoint = "/api/users/" + userID;
 
-        //
+        // Setup Request Object
         RequestSpecification httpRequest = given();
 
-        //Setup Responce object
+        // Setup Response Object
         Response response = httpRequest.request(Method.GET, endpoint);
 
-        //Get
+        // Get Response Status Code
         int statusCode = response.getStatusCode();
         System.out.println(statusCode);
         Assert.assertEquals(statusCode, 200);
         Assert.assertEquals(statusCode, HttpStatus.SC_OK);
 
-        //Get Responce body
-        String responceBody = response.getBody().asPrettyString();
-        System.out.println(responceBody);
-
-
-
+        // Get Response Body
+        String responseBody = response.getBody().asPrettyString();
+        System.out.println(responseBody);
     }
 
     @Test
-    public void simpleShortApiTest(){
-        RestAssured.baseURI = "https://reques.in/";
+    public void simpleShortApiTest() {
+        // Setup RestAssured
+        RestAssured.baseURI = "https://reqres.in";
 
-        //Setup endpoint
+        // Setup endpoint
         int userID = 2;
-        String endpoint = "/api/users/"+ userID;
+        String endpoint = "/api/users/" + userID;
 
         given()
                 .when()
                 .get(endpoint)
                 .then()
-                .statusCode(HttpStatus.SC_CREATED)
+                .statusCode(HttpStatus.SC_OK)
                 .log().body();
-
-
     }
 }

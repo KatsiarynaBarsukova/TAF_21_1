@@ -2,6 +2,7 @@ package models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
 
@@ -18,12 +19,12 @@ public class User {
     @EqualsAndHashCode.Exclude
     private int id;
 
-    //@Expose
+    @Expose
     private String email;
     private String password;
 
-    @SerializedName(value = "is_active") // for GSON
-    @JsonProperty("is_active")// for Jackson
+    @SerializedName(value = "is_active") // ДЛя GSON
+    @JsonProperty("is_active") //Для Jackson
     private boolean isActive;
 
     @SerializedName(value = "is_admin")

@@ -11,18 +11,20 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class HttpClientTest {
-    @Test
-    public void sinpleApiTest() throws IOException {
-        String restURL = "https://reques.in/";
 
-        //create Object and pass the url
+    @Test
+    public void simpleApiTest() throws IOException {
+        String restURL = "https://reqres.in";
+
+        // Create Object and pass the url
         HttpUriRequest request = new HttpGet(restURL);
 
-        //send the request
+        // Send the request
         HttpResponse httpResponse = HttpClientBuilder
                 .create()
                 .build()
                 .execute(request);
+
         System.out.println(request.toString());
 
         Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
