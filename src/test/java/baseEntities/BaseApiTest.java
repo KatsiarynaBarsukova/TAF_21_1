@@ -6,20 +6,16 @@ import io.restassured.http.ContentType;
 import org.apache.http.protocol.HTTP;
 import org.testng.annotations.BeforeTest;
 
-import java.net.http.HttpRequest;
+import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {
 
     @BeforeTest
-    public void setupApi(){
-
+    public void setupApi() {
         RestAssured.baseURI = ReadProperties.getUrl();
 
         RestAssured.requestSpecification = given()
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON)
                 .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password());
-    }
-
-    private HttpRequest.Builder given() {
     }
 }

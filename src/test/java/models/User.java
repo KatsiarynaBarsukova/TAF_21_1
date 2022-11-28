@@ -18,12 +18,11 @@ public class User {
     @EqualsAndHashCode.Exclude
     private int id;
 
-    //@Expose
     private String email;
     private String password;
 
-    @SerializedName(value = "is_active") // for GSON
-    @JsonProperty("is_active")// for Jackson
+    @SerializedName(value = "is_active") // ДЛя GSON
+    @JsonProperty("is_active") //Для Jackson
     private boolean isActive;
 
     @SerializedName(value = "is_admin")
