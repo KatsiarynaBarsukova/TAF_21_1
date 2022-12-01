@@ -15,16 +15,16 @@ public class WaitsTest extends BaseTest {
     public void presenceOfElementTest() throws InterruptedException {
         driver.get("http://the-internet.herokuapp.com/context_menu");
 
-        WebElement button = driver.findElement(By.tagName("button"));
+        WebElement button = driver.findElement((By.cssSelector("[style='position: absolute; top: 0; right: 0; border: 0;']"));
         button.click();
         Assert.assertFalse(button.isDisplayed());
 
-        WebElement loading = driver.findElement(By.id("loading"));
+        WebElement loading = driver.findElement(By.id(""));
         Assert.assertTrue(loading.isDisplayed());
         Thread.sleep(7000);
         Assert.assertFalse(loading.isDisplayed());
 
-        Assert.assertTrue(driver.findElement(By.cssSelector("#finish h4")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.cssSelector("[")).isDisplayed());
     }
 
 
