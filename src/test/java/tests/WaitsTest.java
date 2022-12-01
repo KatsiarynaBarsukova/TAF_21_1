@@ -13,7 +13,7 @@ public class WaitsTest extends BaseTest {
 
     @Test
     public void presenceOfElementTest() throws InterruptedException {
-        driver.get("http://the-internet.herokuapp.com/dynamic_loading/1");
+        driver.get("http://the-internet.herokuapp.com/context_menu");
 
         WebElement button = driver.findElement(By.tagName("button"));
         button.click();
