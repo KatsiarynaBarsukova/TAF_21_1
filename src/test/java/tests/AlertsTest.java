@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AlertsTest extends BaseTest {
-
     @Test
     public void infoAlertTest() {
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
@@ -45,6 +44,7 @@ public class AlertsTest extends BaseTest {
 
         Assert.assertEquals(driver.findElement(By.id("result")).getText(), "You clicked: Cancel");
     }
+
 
     @Test
     public void promptAlertTest() {

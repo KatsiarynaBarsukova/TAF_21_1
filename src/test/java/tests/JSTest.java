@@ -18,11 +18,11 @@ public class JSTest extends BaseTest {
 
         Thread.sleep(5000);
 
-
         String s = (String) javascriptExecutor.executeScript("return document.getElementsByName('txtSearchText')[0].value");
 
         WebElement w1 = driver.findElement(By.name("txtSearchText"));
-        String s = (String) javascriptExecutor.executeScript("return arguments[0].value", w1);
+        s = (String) javascriptExecutor.executeScript("return arguments[0].value", w1);
+
     }
 
     @Test
