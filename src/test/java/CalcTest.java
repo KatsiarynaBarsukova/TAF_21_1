@@ -7,6 +7,7 @@ public class CalcTest extends BaseTest {
 
     @Test
     public void testSum() {
+
         Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
     }
 
